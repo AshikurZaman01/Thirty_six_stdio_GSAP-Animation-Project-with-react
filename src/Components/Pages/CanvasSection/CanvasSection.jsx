@@ -4,21 +4,25 @@ import { useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
-const CanvasSection = () => {
+const CanvasSection = ({ details }) => {
 
-    const [index, setIndex] = useState({ value: 0 })
+    const { startIndex, numImages, duration, size, top, left, zIndex } = details;
+
+    const [index, setIndex] = useState({ value: details.startIndex })
     const canvasRef = useRef();
 
     useGSAP(() => {
+
         gsap.to(index, {
-            value: 149,
-            duration: 3,
+            value: details.startIndex + details.numImages - 1,
+            duration: details.duration,
             ease: 'linear',
             repeat: -1,
             onUpdate: () => {
                 setIndex({ value: Math.round(index.value) })
             }
         })
+
     })
 
 
@@ -44,7 +48,11 @@ const CanvasSection = () => {
         <div>
             <canvas id='canvas'
                 ref={canvasRef}
-                className='w-[18rem] h-[18rem]'
+
+                style={{
+                    width: `${size}px`, height: `${size}px`
+
+                }}
             >
             </canvas>
         </div>
