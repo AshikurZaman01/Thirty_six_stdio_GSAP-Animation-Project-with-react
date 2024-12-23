@@ -3,6 +3,7 @@ import CanvasSection from "./Components/Pages/CanvasSection/CanvasSection";
 import data from "./assets/Data/data";
 import LocomotiveScroll from 'locomotive-scroll';
 import Navbar from "./Components/Pages/Navbar/Navbar";
+import Banner from "./Components/Pages/Banner/Banner";
 
 const App = () => {
 
@@ -26,6 +27,8 @@ const App = () => {
             ))
           }
         </div> */}
+
+        <Banner></Banner>
 
       </div>
 
