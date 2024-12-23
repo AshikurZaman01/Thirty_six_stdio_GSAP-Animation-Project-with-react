@@ -27,6 +27,8 @@ const CanvasSection = ({ details }) => {
 
 
     useEffect(() => {
+
+        const scale = window.devicePixelRatio;
         const canvas = canvasRef.current;
 
         if (canvas) {
@@ -35,9 +37,13 @@ const CanvasSection = ({ details }) => {
             img.src = canvasImages[index.value];
 
             img.onload = () => {
-                canvas.width = img.width;
-                canvas.height = img.height;
-                ctx.drawImage(img, 0, 0);
+                canvas.width = canvas.offsetWidth * scale;
+                canvas.height = canvas.offsetHeight * scale;
+                canvas.style.width = canvas.offsetWidth + "px";
+                canvas.style.height = canvas.offsetHeight + "px";
+
+                ctx.scale(scale, scale);
+                ctx.drawImage(img, 0, 0, canvas.offsetWidth, canvas.offsetHeight);
             }
         }
     }, [index.value]);
@@ -46,11 +52,15 @@ const CanvasSection = ({ details }) => {
 
     return (
         <div>
-            <canvas id='canvas'
+            <canvas
+                data-scroll
+                data-scroll-speed={Math.random().toFixed(1)}
+                id='canvas'
                 ref={canvasRef}
+                className='absolute'
 
                 style={{
-                    width: `${size}px`, height: `${size}px`
+                    width: `${size}px`, height: `${size}px`, top: `${top}%`, left: `${left}%`, zIndex: `${zIndex}`
 
                 }}
             >

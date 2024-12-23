@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Funnel_Display: ['"Funnel Display"', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
