@@ -20,14 +20,14 @@ const App = () => {
       <div className="w-full relative min-h-screen  text-white">
 
         <Navbar></Navbar>
-        {/* 
+       
         <div>
           {
             data[0].map((item, subIndex) => (
               <CanvasSection key={subIndex} details={item} />
             ))
           }
-        </div> */}
+        </div> 
 
         <Banner></Banner>
       </div>
