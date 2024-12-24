@@ -24,17 +24,10 @@ const Banner = () => {
                 </div>
             </div>
 
-            <div className="w-full  absolute bottom-0 left-0 bg-black">
-                <h1 className="text-9xl font-normal tracking-tight pl-10 font-Funnel_Display">Thirtysixstudios</h1>
+            <div className="w-full  absolute bottom-0 left-0  pl-10 ">
 
-                <div>
-                    <h1>About Tha Brand</h1>
-                </div>
-
-
+                <h1 className="text-9xl font-normal tracking-tight  font-Funnel_Display">Thirtysixstudios</h1>
             </div>
-
-
 
         </div>
     );
